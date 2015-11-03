@@ -46,7 +46,7 @@ surf: 1 0 0
 surf-pattern: 1
 surf-texmap: scenes/table_txtr.jpg
 //surf-perlin: .1 .45 .1  .1 .5 .1  2 2 2
-box: LTRBFB 0 -1 0 10 2 5
+box: LTRBFB 0 -1 0 10 2 10
 endfunction:
 
 function: teapot
