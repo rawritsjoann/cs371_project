@@ -3,7 +3,8 @@
 call: studio
 call: lights
 call: floor
-call: teapot
+call: rim
+call: handle
 //call: ambient_occlusion
 //call: smoothing
 
@@ -11,13 +12,13 @@ call: teapot
 function: studio
 angle: 30
 //
-from: 0 30 18
+from: 0 30 19
 at: 0 3 0
 //
 up: 0 30 0
 ambient: .5 .5 .5
 //
-maxdepth: 10
+maxdepth: 101
 background: 0 0 0
 sky:
 endfunction:
@@ -49,12 +50,21 @@ surf-texmap: scenes/table_txtr.jpg
 box: LTRBFB 0 0 0 13 0 15
 endfunction:
 
-function: teapot
+function: rim
 trans-translate: 0 0 0
 trans-rotate: 0 0 0
 surf: 1 1 1
 //surf-specular: .1 .1 .1
-model: scenes/test.obj
+model: scenes/rim.obj
+trans-pop: 2
+endfunction:
+
+function: handle
+trans-translate: 2.9 3 0
+trans-rotate: 0 180 0
+surf: 1 1 1
+//surf-specular: .1 .1 .1
+model: scenes/handle.obj
 trans-pop: 2
 endfunction:
 
