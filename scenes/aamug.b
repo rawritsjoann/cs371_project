@@ -11,7 +11,7 @@ call: teapot
 function: studio
 angle: 30
 //
-from: 4 8 15
+from: 0 30 18
 at: 0 3 0
 //
 up: 0 30 0
@@ -35,7 +35,7 @@ endfunction:
 
 
 function: lights
-light: 1 30 10
+light: 10 100 0
 light-color: .5 .5 .5
 endfunction:
 
@@ -58,5 +58,20 @@ model: scenes/test.obj
 trans-pop: 2
 endfunction:
 
+//a cylinder
+trans-translate: 0 0.1 0
+surf: 1 1 1
+//surf-specular: .2 .2 .2
+cylinder: 3 5.9
+ring: 0 0 0  0 1 0  0 0
+trans-pop: 1
+
+//a cylinder
+trans-translate: 0 0.1 0
+surf: 1 1 1
+//surf-specular: .2 .2 .2
+cylinder: 2.85 5.89
+ring: 0 0.1 0  0 1 0  0 2.81
+trans-pop: 1
 
 

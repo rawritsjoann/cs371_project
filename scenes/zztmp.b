@@ -35,7 +35,7 @@ endfunction:
 
 
 function: lights
-light: 1 30 5
+light: 1 30 10
 light-color: .5 .5 .5
 endfunction:
 
@@ -54,12 +54,19 @@ trans-translate: 0 0 0
 trans-rotate: 0 0 0
 surf: 1 1 1
 //surf-specular: .1 .1 .1
-model: scenes/test1.obj
+model: scenes/test.obj
 trans-pop: 2
 endfunction:
 
+//a cylinder
+trans-translate: 0.1 0.2 0
+surf: 1 1 1
+//surf-specular: .2 .2 .2
+cylinder: 3 5
+ring: 0 0 0  0 1 0  0 0
+trans-pop: 1
 
 
-from: 0.000000 0.000000 0.000000
-  at: 0.000000 0.000000 100.000000
-angle: 0.000000
+from: 4.000000 8.000000 15.000000
+  at: -22.482190 -14.183787 -79.273530
+angle: 15.000000
