@@ -18,20 +18,7 @@ light-color: .5 .5 .3
 light-spec: 1
 light-area: 60 4
 
-checker:
-75 0 75   1 1 1  .8 .8 .8
 
-//floor
-checker:  80 0 80  .9 .9 .9  .7 .7 .6
-checker-grout: .5 .5 .5 .05
-
-surf: .01 .01 .01
-surf-specular: .2 .2 .2
-surf-pattern: 1
-
-trans-translate: 0 -20 0
-box: _T__FB  0 0 0  400 20 200
-trans-pop:
 
 
 //textured surfaces
@@ -49,7 +36,7 @@ trans-pop:
 surf:
 surf-specular: .1 .1 .1
 //surf-texmap: scenes/teapot.ppm
-surf-texmap: scenes/desktop.png
+surf-texmap: scenes/table_txtr.ppm
 tri:
 -100   0  0
 -100 200  0

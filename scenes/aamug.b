@@ -12,7 +12,7 @@ call: handle
 function: studio
 angle: 30
 //
-from: 0 30 19
+from: 0 50 25
 at: 0 3 0
 //
 up: 0 30 0
@@ -36,18 +36,8 @@ endfunction:
 
 
 function: lights
-light: 10 100 0
+light: 10 50 0
 light-color: .5 .5 .5
-endfunction:
-
-
-function: floor
-surf: 1 0 0
-//surf-specular: .2 .2 .2
-surf-pattern: 1
-surf-texmap: scenes/table_txtr.jpg
-//surf-perlin: .1 .45 .1  .1 .5 .1  2 2 2
-box: LTRBFB 0 0 0 13 0 15
 endfunction:
 
 function: rim
@@ -83,5 +73,25 @@ surf: 1 1 1
 cylinder: 2.85 5.89
 ring: 0 0.1 0  0 1 0  0 2.81
 trans-pop: 1
+
+function: floor
+surf:
+//surf-specular: .2 .2 .2
+//surf-pattern: 1
+surf-texmap: scenes/table_txtr.jpg
+//surf-perlin: .1 .45 .1  .1 .5 .1  2 2 2
+//box: LTRBFB 0 0 0 13 0 15
+
+tri:
+-10 0 -10
+-10 0  10
+ 10 0 -10
+tri-texcoord: 0 1  0 .3  1 1
+tri:
+ 10 0 -10
+-10 0  10
+ 10 0  10
+tri-texcoord: 1 1  0 .3  1 .3
+endfunction:
 
 
