@@ -18,8 +18,8 @@ at: 0 3 0
 up: 0 30 0
 ambient: .5 .5 .5
 //
-maxdepth: 101
-background: 0 0 0
+maxdepth: 10
+background: 1 1 1
 sky:
 endfunction:
 
@@ -38,6 +38,7 @@ endfunction:
 function: lights
 light: 10 50 0
 light-color: .5 .5 .5
+light-area: 5 10
 endfunction:
 
 function: rim
@@ -75,7 +76,7 @@ ring: 0 0.1 0  0 1 0  0 2.81
 trans-pop: 1
 
 function: floor
-surf:
+surf: 1 0 0
 //surf-specular: .2 .2 .2
 //surf-pattern: 1
 surf-texmap: scenes/table_txtr.jpg
@@ -83,15 +84,15 @@ surf-texmap: scenes/table_txtr.jpg
 //box: LTRBFB 0 0 0 13 0 15
 
 tri:
+-10 0  10
 -10 0 -10
--10 0  10
  10 0 -10
-tri-texcoord: 0 1  0 .3  1 1
+tri-texcoord: 0 .3  0 1  1 1
 tri:
- 10 0 -10
 -10 0  10
+ 10 0 -10
  10 0  10
-tri-texcoord: 1 1  0 .3  1 .3
+tri-texcoord: 0 .3 1 1  1 .3
 endfunction:
 
 
