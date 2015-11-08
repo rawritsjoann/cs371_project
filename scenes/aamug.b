@@ -12,7 +12,7 @@ call: handle
 function: studio
 angle: 30
 //
-from: 0 50 25
+from: 5 15 20
 at: 0 3 0
 //
 up: 0 30 0
@@ -36,9 +36,9 @@ endfunction:
 
 
 function: lights
-light: 10 50 0
+light: 10 30 0
 light-color: .5 .5 .5
-light-area: 5 10
+//light-area: 5 10
 endfunction:
 
 function: rim
@@ -63,7 +63,9 @@ endfunction:
 trans-translate: 0 0.1 0
 surf: 1 1 1
 //surf-specular: .2 .2 .2
-cylinder: 3 5.9
+surf-texmap: scenes/mug_txtr.jpg
+surf-cylindrical:
+cylinder: 2.99 5.9
 ring: 0 0 0  0 1 0  0 0
 trans-pop: 1
 
@@ -71,7 +73,7 @@ trans-pop: 1
 trans-translate: 0 0.1 0
 surf: 1 1 1
 //surf-specular: .2 .2 .2
-cylinder: 2.85 5.89
+cylinder: 2.85 5.9
 ring: 0 0.1 0  0 1 0  0 2.81
 trans-pop: 1
 

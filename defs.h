@@ -249,6 +249,7 @@ typedef struct t_surface {
 	Matrix mat, invmat;
 	Texmap *tm;
 	int spherical;
+	int cylindrical;
 	struct t_surface *next;
 } Surface;
 

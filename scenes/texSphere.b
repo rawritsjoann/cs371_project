@@ -29,7 +29,7 @@ sphere: 0 -1000 0 1000
 
 surf: 1 0 0
 surf-specular: .2 .2 .2
-surf-texmap: scenes/table_txtr.jpg
+surf-texmap: scenes/mug_txtr.jpg
 surf-spherical:
 sphere: 0 1 0 1
 

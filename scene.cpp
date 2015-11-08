@@ -1645,6 +1645,7 @@ void scene_s(char *line, FILE *fpi)
 		sf->sub = 0;
 		sf->tm = NULL;
 		sf->spherical = 0;
+		sf->cylindrical = 0;
 		//save the transformation matrix and its inverse
 		identity(sf->mat);
 		identity(sf->invmat);
@@ -1734,6 +1735,11 @@ void scene_s(char *line, FILE *fpi)
 		if (strncasecmp(line, "surf-spherical:", 15)==0) {
 			g.surfaceHead->spherical = 1;
 			//printf("spherical\n");
+			return;
+		}
+		if (strncasecmp(line, "surf-cylindrical:", 17)==0) {
+			g.surfaceHead->cylindrical = 1;
+			//printf("cylinder\n");
 			return;
 		}
 		if (strncasecmp(line, "surf-pattern:", 13)==0) {

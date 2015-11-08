@@ -333,6 +333,7 @@ void resolveTexmap(Object *o, Hit *hit)
 
 	//this can be optimized
 	if (sf->spherical) {
+
 		//The color is from a spherical texture map
 		//Use the hit-normal to get the tex coordinates.
 		int m2;
@@ -351,7 +352,7 @@ void resolveTexmap(Object *o, Hit *hit)
 		//Log("wh: %i %i\n",width,height);
 		tx = ((Flt)width * (angle1 / PItimes2));
 		m2 = (Flt)(height/2);
-		//
+		
 		Flt angle2 = asin(vn[1]);
 		if (hit->norm[1] < 0.0) {
 			ty = m2 + (m2 * (-angle2 / PIdiv2));
@@ -369,8 +370,42 @@ void resolveTexmap(Object *o, Hit *hit)
 		return;
 	}
 
+	//this can be optimized
+	if (sf->cylindrical) {
+		Cylinder *c = (Cylinder *)o->obj;
+		//The color is from a cylindrical texture map
+		//int m2;
+		Flt oo256 = 1.0 / 255.0;
+		Flt tx,ty;
+	
+		Vec vn, vp;
+		//VecCopy(hit->nhit, vn);
+		transNormal(sf->mat, hit->nhit, vn);
+		transVector(sf->mat, hit->p, vp);
+
+		Flt angle1 = PI - (atan2(vn[2], vn[0]));
+		int width  = sf->tm->xres;
+		int height = sf->tm->yres;
+		//Log("resolve_texmap()...\n");
+		//Log("angle1: %lf\n",angle1);
+		//Log("wh: %i %i\n",width,height);
+		tx = ((Flt)width * (angle1 / PItimes2));
+		ty = (Flt)height * ((hit->p[1] - 0.1)/c->apex);
+		ty = height - ty;
+		//
+		int j = (int)floor(tx + 0.00001);
+		int i = (int)floor(ty + 0.00001);
+		int offset = i * width * 3 + j * 3;
+		unsigned char *ptr = sf->tm->data + offset;
+		hit->color[0] = (Flt)(*(ptr+0)) * oo256;
+		hit->color[1] = (Flt)(*(ptr+1)) * oo256;
+		hit->color[2] = (Flt)(*(ptr+2)) * oo256;
+		//Log("col: %lf %lf %lf\n",hit->color[0],hit->color[1],hit->color[2]);
+		return;
+	}
 
 
+	    	//printf("hello\n");
 	//Log("coo: %f %f  %f %f  %f %f\n",
 	//					t->texcoord[0][0],
 	//					t->texcoord[1][0],

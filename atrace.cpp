@@ -260,14 +260,14 @@ int get_light_contribution(Vec p, Vec nhit, Vec rgb)
 					//go in direction to light source
 					VecCopy(v0, rx.d);
 					nudgeRayForward(&rx);
-					#ifdef USE_SHADOW_CACHING
+					/*#ifdef USE_SHADOW_CACHING
 						l->cache_obj=NULL;
 						if (traceShadow(&rx, disttolight, l))
 							continue;
 					#else //USE_SHADOW_CACHING
 						if (traceShadow(&rx, disttolight))
 							continue;
-					#endif //USE_SHADOW_CACHING
+					#endif //USE_SHADOW_CACHING*/
 
 					//no penumbra
 					//VecAdd(l->color, accum, accum);
