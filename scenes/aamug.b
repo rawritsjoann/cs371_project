@@ -1,4 +1,4 @@
-//teapot model
+//mug model
 
 call: studio
 call: lights
@@ -12,7 +12,7 @@ call: handle
 function: studio
 angle: 30
 //
-from: 5 15 20
+from: -5 30 20
 at: 0 3 0
 //
 up: 0 30 0
@@ -86,14 +86,14 @@ surf-texmap: scenes/table_txtr.jpg
 //box: LTRBFB 0 0 0 13 0 15
 
 tri:
--10 0  10
--10 0 -10
- 10 0 -10
+-25 0  25
+-25 0 -25
+ 25 0 -25
 tri-texcoord: 0 .3  0 1  1 1
 tri:
--10 0  10
- 10 0 -10
- 10 0  10
+-25 0  25
+ 25 0 -25
+ 25 0  25
 tri-texcoord: 0 .3 1 1  1 .3
 endfunction:
 
