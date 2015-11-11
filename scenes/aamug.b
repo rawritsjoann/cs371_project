@@ -12,7 +12,7 @@ call: handle
 function: studio
 angle: 30
 //
-from: -5 30 20
+from: -5 35 25
 at: 0 3 0
 //
 up: 0 30 0
@@ -24,7 +24,7 @@ sky:
 endfunction:
 
 function: ambient_occlusion
-ambient-occlusion: 5 1.5
+//ambient-occlusion: 5 1.5
 endfunction:
 
 
@@ -36,33 +36,38 @@ endfunction:
 
 
 function: lights
-light: 10 30 0
+light: -10 20 -1
+light-color: .05 .05 .3
+
+light: 1 100 -2
 light-color: .5 .5 .5
 //light-area: 5 10
 endfunction:
+
+
 
 function: rim
 trans-translate: 0 0 0
 trans-rotate: 0 0 0
 surf: 1 1 1
-//surf-specular: .1 .1 .1
+surf-specular: .1 .1 .1
 model: scenes/rim.obj
 trans-pop: 2
 endfunction:
 
 function: handle
-trans-translate: 2.9 3 0
+trans-translate: 2.9 3.1 0
 trans-rotate: 0 180 0
 surf: 1 1 1
-//surf-specular: .1 .1 .1
-model: scenes/handle.obj
+surf-specular: .1 .1 .1
+model: scenes/handle1.obj
 trans-pop: 2
 endfunction:
 
 //a cylinder
 trans-translate: 0 0.1 0
 surf: 1 1 1
-//surf-specular: .2 .2 .2
+surf-specular: .1 .1 .1
 surf-texmap: scenes/mug_txtr.jpg
 surf-cylindrical:
 cylinder: 2.99 5.9
@@ -72,9 +77,9 @@ trans-pop: 1
 //a cylinder
 trans-translate: 0 0.1 0
 surf: 1 1 1
-//surf-specular: .2 .2 .2
+surf-specular: .1 .1 .1
 cylinder: 2.85 5.9
-ring: 0 0.1 0  0 1 0  0 2.81
+ring: 0 0 0  0 1 0  0 2.85
 trans-pop: 1
 
 function: floor
