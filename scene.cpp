@@ -657,23 +657,51 @@ void buildModel(char *mname)
 		}
 	}
 	fclose(fpi);
+	
+	int a,b,c;
+	Vec norm;
+	Vec normals[nv];
+	Vec ttri[3];
+	for (int i = 0; i < nv; i++) {
+	    VecZero(normals[i]);
+	    for (int j = 0; j < nf; j++) {
+		a = face[i*3+0]-1;
+		b = face[i*3+1]-1;
+		c = face[i*3+2]-1;
+		if (i == a || i == b || i == c) {
+		    VecCopy(vert[a],ttri[0]);
+		    VecCopy(vert[b],ttri[1]);
+		    VecCopy(vert[c],ttri[2]);
+		    makeUnitNormalFromVerts(ttri, norm);
+		    normals[i][0] += norm[0];
+		    normals[i][1] += norm[1];
+		    normals[i][2] += norm[2];
+		}
+	    }
+	    VecNormalize(normals[i]);
+	}
+
 	//Log("nverts: %i   nfaces: %i\n", nv, nf);
 	//
 	//now build the triangles...
 	for (i=0; i<nf; i++) {
-		j = face[i*3+0]-1;
-		tv[0][0] = vert[j][0];
-		tv[0][1] = vert[j][1];
-		tv[0][2] = vert[j][2];
-		j = face[i*3+1]-1;
-		tv[1][0] = vert[j][0];
-		tv[1][1] = vert[j][1];
-		tv[1][2] = vert[j][2];
-		j = face[i*3+2]-1;
-		tv[2][0] = vert[j][0];
-		tv[2][1] = vert[j][1];
-		tv[2][2] = vert[j][2];
+		a = face[i*3+0]-1;
+		tv[0][0] = vert[a][0];
+		tv[0][1] = vert[a][1];
+		tv[0][2] = vert[a][2];
+		b = face[i*3+1]-1;
+		tv[1][0] = vert[b][0];
+		tv[1][1] = vert[b][1];
+		tv[1][2] = vert[b][2];
+		c = face[i*3+2]-1;
+		tv[2][0] = vert[c][0];
+		tv[2][1] = vert[c][1];
+		tv[2][2] = vert[c][2];
 		makeTriangle(tv);
+		VecCopy(normals[a],g.triHead->pnorm[0]);
+		VecCopy(normals[b],g.triHead->pnorm[1]);
+		VecCopy(normals[c],g.triHead->pnorm[2]);
+		g.triHead -> patch = 1;
 	}
 	free(vert);
 	free(face);
