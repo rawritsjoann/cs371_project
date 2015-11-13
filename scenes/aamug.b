@@ -3,6 +3,7 @@
 call: studio
 call: light1
 call: light2
+call: light3
 call: floor
 call: rim
 call: handle
@@ -21,8 +22,7 @@ up: 0 30 0
 ambient: .5 .5 .5
 //
 maxdepth: 10
-background: 1 1 1
-sky:
+background: .5 .5 .5
 endfunction:
 
 function: ambient_occlusion
@@ -38,19 +38,25 @@ endfunction:
 
 
 function: light1
-light: 3 100 10
-light-color: .5 .5 .5
+light: 0 50 0
+light-color: .2 .2 .2
 light-spec: 10
-light-area: 5 10
+light-area: 3 50
 endfunction:
 
 function: light2
-light: -20 10 0
-light-color: .4 .4 .5
+light: 0 50 10
+light-color: .2 .2 .2
 light-spec: 10
-light-area: 5 10
+light-area: 3 50
 endfunction:
 
+function: light3
+light: -20 20 0
+light-color: .2 .2 .3
+light-spec: 10
+light-area: 3 50
+endfunction:
 
 function: rim
 trans-translate: 0 0 0
@@ -66,6 +72,8 @@ trans-translate: 2.5 3.1 -1.5
 trans-rotate: 0 210 0
 surf: 1 1 1
 surf-specular: .1 .1 .1
+surf-highlight: 1 1 1
+surf-spot: 80
 model: scenes/handle1.obj
 trans-pop: 2
 endfunction:
@@ -79,7 +87,10 @@ model: scenes/pencil.obj
 trans-pop: 2
 trans-translate: -2 5.8 -.3
 trans-rotate: 330 30 50
-surf: .95 .95 .95 
+surf: .5 .5 .5 
+surf-specular: .3 .3 .3
+surf-highlight: 1 1 1
+surf-spot: 30
 model: scenes/top.obj
 trans-pop: 2
 trans-translate: -2 5.8 -.3
@@ -93,7 +104,7 @@ endfunction:
 trans-translate: 0 0.1 0
 trans-rotate: 0 -15 0
 surf: 1 1 1
-surf-specular: .1 .1 .1
+surf-specular: .3 .3 .3
 surf-texmap: scenes/mug_txtr.jpg
 surf-cylindrical:
 cylinder: 2.99 5.9
@@ -103,7 +114,7 @@ trans-pop: 2
 //a cylinder
 trans-translate: 0 0.1 0
 surf: 1 1 1
-surf-specular: .1 .1 .1
+surf-specular: .2 .2 .2
 cylinder: 2.85 5.9
 ring: 0 0 0  0 1 0  0 2.85
 trans-pop: 1
@@ -113,8 +124,6 @@ surf: 1 0 0
 //surf-specular: .2 .2 .2
 //surf-pattern: 1
 surf-texmap: scenes/table_txtr.jpg
-//surf-perlin: .1 .45 .1  .1 .5 .1  2 2 2
-//box: LTRBFB 0 0 0 13 0 15
 
 tri:
 -25 0  25
