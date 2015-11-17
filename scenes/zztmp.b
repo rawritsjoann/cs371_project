@@ -1,29 +1,30 @@
-//teapot model
+//mug shot
 
 call: studio
 call: lights
 call: floor
-call: teapot
+call: rim
+call: handle
+call: pencil
+call: rings
 //call: ambient_occlusion
 //call: smoothing
-
 
 function: studio
 angle: 30
 //
-from: 4 8 15
+from: 0 35 25
 at: 0 3 0
 //
 up: 0 30 0
-ambient: .5 .5 .5
+ambient: .4 .4 .4
 //
 maxdepth: 10
-background: 0 0 0
-sky:
+background: .5 .5 .5
 endfunction:
 
 function: ambient_occlusion
-ambient-occlusion: 5 1.5
+//ambient-occlusion: 5 1.5
 endfunction:
 
 
@@ -35,38 +36,109 @@ endfunction:
 
 
 function: lights
-light: 1 30 10
-light-color: .5 .5 .5
+light: 0 50 0
+light-color: .3 .3 .3
+light-spec: 10
+light-area: 3 50
+
+light: 0 50 10
+light-color: .3 .3 .3
+light-spec: 10
+light-area: 3 50
+
+light: -20 20 0
+light-color: .2 .2 .4
+light-spec: 10
+light-area: 3 50
 endfunction:
 
+function: rim
+trans-translate: 0 0 0
+trans-rotate: 0 0 0
+surf: 1 1 1
+surf-specular: .1 .1 .1
+model: scenes/rim.obj
+trans-pop: 2
+endfunction:
+
+function: handle
+trans-translate: 2.5 3.1 -1.5
+trans-rotate: 0 210 0
+surf: 1 1 1
+surf-specular: .1 .1 .1
+surf-highlight: 1 1 1
+surf-spot: 80
+model: scenes/handle1.obj
+trans-pop: 2
+endfunction:
+
+function: pencil
+trans-translate: -2 6 -.3
+trans-rotate: 335 30 50
+surf: 1.0 .5373 .02353
+surf-specular: .1 .1 .1
+model: scenes/pencil.obj
+trans-pop: 2
+trans-translate: -2 6 -.3
+trans-rotate: 335 30 50
+surf: .5 .5 .5 
+surf-specular: .3 .3 .3
+surf-highlight: 1 1 1
+surf-spot: 30
+model: scenes/top.obj
+trans-pop: 2
+trans-translate: -2 6 -.3
+trans-rotate: 335 30 50
+surf: .8 0.1 0.1
+model: scenes/eraser.obj
+trans-pop: 2
+endfunction:
+
+function: rings
+surf: 1 1 1
+ring: 0 0 0  0 1 0  0 2.85
+surf: 1 1 1
+surf-specular: .9 .9 .9
+surf-highlight: 100
+ring: 0 0 0  0 2 0  2.4 2.85
+endfunction:
+
+// outside
+trans-translate: 0 0.1 0
+trans-rotate: 0 -15 0
+surf: 1 1 1
+surf-specular: .2 .2 .2
+surf-texmap: scenes/mug_txtr.jpg
+surf-cylindrical:
+cylinder: 2.99 5.9
+//ring: 0 0 0  0 1 0  0 0
+trans-pop: 2
+
+// inside
+trans-translate: 0 0.1 0
+surf: 1 1 1
+surf-insideout:
+surf-specular: .2 .2 .2
+cylinder: 2.85 5.9
+trans-pop: 2
 
 function: floor
 surf: 1 0 0
 //surf-specular: .2 .2 .2
-surf-pattern: 1
+//surf-pattern: 1
 surf-texmap: scenes/table_txtr.jpg
-//surf-perlin: .1 .45 .1  .1 .5 .1  2 2 2
-box: LTRBFB 0 0 0 13 0 15
+
+tri:
+-25 0  25
+-25 0 -25
+ 25 0 -25
+tri-texcoord: 0 .3  0 1  1 1
+tri:
+-25 0  25
+ 25 0 -25
+ 25 0  25
+tri-texcoord: 0 .3 1 1  1 .3
 endfunction:
-
-function: teapot
-trans-translate: 0 0 0
-trans-rotate: 0 0 0
-surf: 1 1 1
-//surf-specular: .1 .1 .1
-model: scenes/test.obj
-trans-pop: 2
-endfunction:
-
-//a cylinder
-trans-translate: 0.1 0.2 0
-surf: 1 1 1
-//surf-specular: .2 .2 .2
-cylinder: 3 5
-ring: 0 0 0  0 1 0  0 0
-trans-pop: 1
-
-
-from: 4.000000 8.000000 15.000000
-  at: -22.482190 -14.183787 -79.273530
+from: 0.000000 35.000000 25.000000
+  at: 8.096628 -32.593880 -50.911358
 angle: 15.000000

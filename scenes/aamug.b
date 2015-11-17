@@ -13,10 +13,10 @@ function: studio
 angle: 30
 //
 from: 0 35 25
-at: 0 3 0
+at: 0 0 0
 //
 up: 0 30 0
-ambient: .5 .5 .5
+ambient: .4 .4 .4
 //
 maxdepth: 10
 background: .5 .5 .5
@@ -46,7 +46,7 @@ light-spec: 10
 light-area: 3 50
 
 light: -20 20 0
-light-color: .2 .2 .4
+light-color: .3 .3 .5
 light-spec: 10
 light-area: 3 50
 endfunction:
@@ -100,17 +100,21 @@ surf: 1 1 1
 surf-specular: .2 .2 .2
 surf-texmap: scenes/mug_txtr.jpg
 surf-cylindrical:
-cylinder: 2.99 5.9
-ring: 0 0 0  0 1 0  0 0
+cylinder: 3 5.9
+surf: .9 .9 .9
+ring: 0 .5 0  0 .5 0  0 2.86
 trans-pop: 2
 
 // inside
 trans-translate: 0 0.1 0
 surf: 1 1 1
+surf-insideout:
 surf-specular: .2 .2 .2
-cylinder: 2.85 5.9
-ring: 0 0 0  0 1 0  0 2.85
-trans-pop: 1
+cylinder: 2.86 5.9
+surf: 1 1 1
+surf-specular: 1 1 1
+//ring: 0 .500001 0  0 .500001 0  2.8 2.85
+trans-pop: 3
 
 function: floor
 surf: 1 0 0
