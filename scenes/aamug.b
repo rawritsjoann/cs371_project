@@ -86,10 +86,10 @@ surf-highlight: 1 1 1
 surf-spot: 30
 model: scenes/top.obj
 trans-pop: 2
-trans-translate: -2 6 -.3
-trans-rotate: 335 30 50
-surf: .8 0.1 0.1
-model: scenes/eraser.obj
+//trans-translate: -2 6 -.3
+//trans-rotate: 335 30 50
+//surf: .8 0.1 0.1
+//model: scenes/eraser.obj
 trans-pop: 2
 endfunction:
 

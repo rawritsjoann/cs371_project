@@ -6,7 +6,6 @@ call: floor
 call: rim
 call: handle
 call: pencil
-call: rings
 //call: ambient_occlusion
 //call: smoothing
 
@@ -14,7 +13,7 @@ function: studio
 angle: 30
 //
 from: 0 35 25
-at: 0 3 0
+at: 0 0 0
 //
 up: 0 30 0
 ambient: .4 .4 .4
@@ -37,17 +36,17 @@ endfunction:
 
 function: lights
 light: 0 50 0
-light-color: .3 .3 .3
+light-color: .2 .2 .2
 light-spec: 10
 light-area: 3 50
 
 light: 0 50 10
-light-color: .3 .3 .3
+light-color: .2 .2 .2
 light-spec: 10
 light-area: 3 50
 
 light: -20 20 0
-light-color: .2 .2 .4
+light-color: .3 .3 .5
 light-spec: 10
 light-area: 3 50
 endfunction:
@@ -87,20 +86,11 @@ surf-highlight: 1 1 1
 surf-spot: 30
 model: scenes/top.obj
 trans-pop: 2
-trans-translate: -2 6 -.3
-trans-rotate: 335 30 50
-surf: .8 0.1 0.1
-model: scenes/eraser.obj
+//trans-translate: -2 6 -.3
+//trans-rotate: 335 30 50
+//surf: .8 0.1 0.1
+//model: scenes/eraser.obj
 trans-pop: 2
-endfunction:
-
-function: rings
-surf: 1 1 1
-ring: 0 0 0  0 1 0  0 2.85
-surf: 1 1 1
-surf-specular: .9 .9 .9
-surf-highlight: 100
-ring: 0 0 0  0 2 0  2.4 2.85
 endfunction:
 
 // outside
@@ -110,8 +100,9 @@ surf: 1 1 1
 surf-specular: .2 .2 .2
 surf-texmap: scenes/mug_txtr.jpg
 surf-cylindrical:
-cylinder: 2.99 5.9
-//ring: 0 0 0  0 1 0  0 0
+cylinder: 3 5.9
+surf: .9 .9 .9
+ring: 0 .5 0  0 .5 0  0 2.86
 trans-pop: 2
 
 // inside
@@ -119,8 +110,11 @@ trans-translate: 0 0.1 0
 surf: 1 1 1
 surf-insideout:
 surf-specular: .2 .2 .2
-cylinder: 2.85 5.9
-trans-pop: 2
+cylinder: 2.86 5.9
+surf: 1 1 1
+surf-specular: 1 1 1
+//ring: 0 .500001 0  0 .500001 0  2.8 2.85
+trans-pop: 3
 
 function: floor
 surf: 1 0 0
@@ -140,5 +134,5 @@ tri:
 tri-texcoord: 0 .3 1 1  1 .3
 endfunction:
 from: 0.000000 35.000000 25.000000
-  at: 8.096628 -32.593880 -50.911358
+  at: -15.074938 -35.375184 -48.521247
 angle: 15.000000
