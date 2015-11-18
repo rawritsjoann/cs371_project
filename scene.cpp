@@ -661,8 +661,8 @@ void buildModel(char *mname)
 	int a,b,c;
 	Vec norm;
 	Vec normals[nv];
-	//Vec diff;
-	//double dist;
+	Vec diffa, diffb, diffc;
+	double dista, distb, distc;
 	Vec ttri[3];
 	for (int i = 0; i < nv; i++) {
 	    VecZero(normals[i]);
@@ -670,12 +670,20 @@ void buildModel(char *mname)
 		a = face[j*3+0]-1;
 		b = face[j*3+1]-1;
 		c = face[j*3+2]-1;
-		//VecSub(vert[a],vert[i],diff);
-		//dist = sqrt(diff[0] * diff[0] +
-		//	    diff[1] * diff[1] +
-		//	    diff[2] * diff[2]);
-		//if (dist < 0.01) {
-		if (i ==a || i == b || i == c) {
+		VecSub(vert[a],vert[i],diffa);
+		dista = sqrt(diffa[0] * diffa[0] +
+			     diffa[1] * diffa[1] +
+			     diffa[2] * diffa[2]);
+		VecSub(vert[b],vert[i],diffb);
+		distb = sqrt(diffb[0] * diffb[0] +
+			     diffb[1] * diffb[1] +
+			     diffb[2] * diffb[2]);
+		VecSub(vert[c],vert[i],diffc);
+		distc = sqrt(diffc[0] * diffc[0] +
+			     diffc[1] * diffc[1] +
+			     diffc[2] * diffc[2]);
+		if (dista < 0.01 || distb < 0.01 || distc < 0.01 ) {
+		//if (i ==a || i == b || i == c) {
 		    VecCopy(vert[a],ttri[0]);
 		    VecCopy(vert[b],ttri[1]);
 		    VecCopy(vert[c],ttri[2]);
