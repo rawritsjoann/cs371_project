@@ -659,7 +659,7 @@ void buildModel(char *mname)
 	fclose(fpi);
 	
 	int a,b,c;
-	Vec norm;
+/*	Vec norm;
 	Vec normals[nv];
 	Vec ttri[3];
 	for (int i = 0; i < nv; i++) {
@@ -680,7 +680,7 @@ void buildModel(char *mname)
 	    }
 	    VecNormalize(normals[i]);
 	}
-
+*/
 	//Log("nverts: %i   nfaces: %i\n", nv, nf);
 	//
 	//now build the triangles...
@@ -698,11 +698,11 @@ void buildModel(char *mname)
 		tv[2][1] = vert[c][1];
 		tv[2][2] = vert[c][2];
 		makeTriangle(tv);
-		VecCopy(normals[a],g.triHead->pnorm[0]);
+/*		VecCopy(normals[a],g.triHead->pnorm[0]);
 		VecCopy(normals[b],g.triHead->pnorm[1]);
 		VecCopy(normals[c],g.triHead->pnorm[2]);
 		g.triHead -> patch = 1;
-	}
+*/	}
 	free(vert);
 	free(face);
 }
