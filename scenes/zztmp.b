@@ -86,10 +86,15 @@ surf-highlight: 1 1 1
 surf-spot: 30
 model: scenes/top.obj
 trans-pop: 2
-//trans-translate: -2 6 -.3
-//trans-rotate: 335 30 50
-//surf: .8 0.1 0.1
-//model: scenes/eraser.obj
+trans-translate: -2 6 -.3
+trans-rotate: 335 30 50
+surf: .8 0.1 0.1
+model: scenes/eraser.obj
+trans-pop: 2
+trans-translate: -2 6 -.3
+trans-rotate: 335 30 50
+surf: 1 .4 .4
+model: scenes/eraser_u.obj
 trans-pop: 2
 endfunction:
 
@@ -134,5 +139,5 @@ tri:
 tri-texcoord: 0 .3 1 1  1 .3
 endfunction:
 from: 0.000000 35.000000 25.000000
-  at: -15.074938 -35.375184 -48.521247
+  at: -15.790662 -37.663218 -45.318000
 angle: 15.000000
