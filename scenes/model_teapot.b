@@ -17,7 +17,7 @@ from: 0 7 15
 at: 0 0.90 0
 //
 up: 0 1 0
-ambient: .9 .9 .9
+ambient: .5 .5 .5
 //
 maxdepth: 10
 background: 0 0 0
@@ -38,7 +38,7 @@ endfunction:
 
 function: lights
 light: -200 100 100
-light-color: .31 .31 .31
+light-color: .5 .5 .5
 endfunction:
 
 

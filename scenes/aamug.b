@@ -23,7 +23,7 @@ background: .5 .5 .5
 endfunction:
 
 function: ambient_occlusion
-//ambient-occlusion: 5 1.5
+ambient-occlusion: 5 1.5
 endfunction:
 
 

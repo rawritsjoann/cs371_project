@@ -23,7 +23,7 @@ background: .5 .5 .5
 endfunction:
 
 function: ambient_occlusion
-//ambient-occlusion: 5 1.5
+ambient-occlusion: 5 1.5
 endfunction:
 
 
@@ -139,5 +139,5 @@ tri:
 tri-texcoord: 0 .3 1 1  1 .3
 endfunction:
 from: 0.000000 35.000000 25.000000
-  at: -15.790662 -37.663218 -45.318000
+  at: -15.432800 -38.859236 -43.643575
 angle: 15.000000
